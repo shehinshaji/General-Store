@@ -1,8 +1,11 @@
 const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
-const mongoDbUrl = "mongodb+srv://omnistack:omnistack@cluster0-tb9ng.mongodb.net/omnistack8?retryWrites=true&w=majority";
-
+#const mongoDbUrl = "mongodb+srv://omnistack:omnistack@cluster0-tb9ng.mongodb.net/omnistack8?retryWrites=true&w=majority";
+const url = process.env.MONGODB_URL;
+const dbName = "DevOpsAssignment";
+#const client = new MongoClient(url);
+#mongoDb
 let _db;
 
 const initDb = callback => {
@@ -10,7 +13,7 @@ const initDb = callback => {
         console.log('Database is already initialized!');
         return callback(null, _db);
     }
-    MongoClient.connect(mongoDbUrl)
+    MongoClient.connect(Url)
         .then(client => {
             _db = client;
             callback(null, _db);
